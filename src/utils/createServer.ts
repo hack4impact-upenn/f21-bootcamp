@@ -3,6 +3,7 @@ import path from 'path';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import userRouter from '../routes/user.api';
+import newbieRouter from '../routes/newbie.api';
 
 const createServer = (): express.Express => {
   const app = express();
@@ -13,6 +14,7 @@ const createServer = (): express.Express => {
 
   // API Routes
   app.use('/api/users', userRouter);
+  app.use('/api/newbies', newbieRouter);
 
   // Serving static files
   if (process.env.NODE_ENV === 'production') {
